@@ -10,8 +10,7 @@ import pl.coderslab.expenses.model.User;
 import java.util.List;
 
 @Repository
-public interface TripRepository  extends JpaRepository<Trip, Long> {
-
+public interface TripRepository extends JpaRepository<Trip, Long> {
 
     @Query("select t from Trip t where t.name=:name")
     Trip findByName(@Param("name") String name);

@@ -17,9 +17,7 @@ public interface ExpenseRepository extends JpaRepository<Expense, Long> {
 
 
     @Query("SELECT SUM(amount) FROM Expense")
-    Expense findAmountSum(@Param("amount")Double amount);
+    Expense findAmountSum(@Param("amount") Double amount);
 
-//@Query("SELECT e FROM Expense e")
-//List<Expense> findAll(Expense expense);
-    }
+}
 

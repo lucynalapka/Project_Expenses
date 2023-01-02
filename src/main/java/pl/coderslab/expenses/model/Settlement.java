@@ -5,18 +5,19 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Objects;
+
 @Entity
 @Data
 @NoArgsConstructor
 
 public class Settlement {
-   @Id
-   @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Double value;
-   @OneToOne
+    @OneToOne
     private User paidTo;
-   @OneToOne
+    @OneToOne
     private User paidBy;
 
     public Settlement(Double value, User paidTo) {

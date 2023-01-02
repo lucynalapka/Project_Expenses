@@ -12,12 +12,13 @@ import pl.coderslab.expenses.service.UserService;
 @RequiredArgsConstructor
 @Controller
 @RequestMapping("/admin")
-public class AdminController { //strefa chroniona skonfigurowana w SecurityConfig
+public class AdminController {
     private final UserService service;
+
     @RequestMapping("")
     @PreAuthorize("hasRole('ADMIN')")
-    public String index(@AuthenticationPrincipal UserDetails user, Model model){
-        model.addAttribute("user",service.findByUsername(user.getUsername()));
+    public String index(@AuthenticationPrincipal UserDetails user, Model model) {
+        model.addAttribute("user", service.findByUsername(user.getUsername()));
         return "admin/index";
     }
 }

@@ -9,9 +9,13 @@ import java.util.List;
 public interface UserService {
 
     User save(User u);
+
     User saveAdmin(User u);
+
     List<User> findAll();
+
     User findByUsername(String username);
+
     User registerUser(RegisterDto dto);
 
     List<Expense> getExpenses(Long id);

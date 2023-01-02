@@ -21,17 +21,18 @@ public class ExpenseServiceImpl implements ExpenseService {
     public Expense findByName(String name) {
         return expenseRepository.findByName(name);
     }
+
     @Override
     public void saveExpense(Expense expense) {
         expense.setId(nextId++);
         expenseRepository.save(expense);
+    }
 
-    }
     @Override
-    public List<Expense>findAll() {
+    public List<Expense> findAll() {
         return expenseRepository.findAll();
-//
     }
+
     @Override
     public List<Expense> getAll(Long id) {
         return null;
@@ -51,6 +52,4 @@ public class ExpenseServiceImpl implements ExpenseService {
         expenseRepository.deleteById(id);
         return "expense deleted";
     }
-
-
 }

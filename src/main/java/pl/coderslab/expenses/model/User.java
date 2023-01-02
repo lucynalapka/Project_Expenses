@@ -24,13 +24,10 @@ public class User {
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     private Set<Role> roles;
-
     private Double amountToPay;
     private Double amountPaid;
-
     @ManyToMany(mappedBy = "paidFor")
     private List<Expense> expenses;
-
     @OneToMany(cascade = CascadeType.MERGE)
     private List<Settlement> settlementAmounts;
 
@@ -41,34 +38,35 @@ public class User {
         this.settlementAmounts = new LinkedList<>();
         this.expenses = new LinkedList<>();
     }
-    void updateAmountToPay(Double amount) {
-        this.amountToPay += amount;
-    }
 
-    void settlementAmountWith(User user, Double amount) {
-        this.amountToPay = this.amountToPay - amount;
-        this.addSettlementAmount(new Settlement(amount, user));
-    }
-
-    void receiveAmountFrom(User user, Double amount) {
-        this.amountPaid = this.amountPaid - amount;
-        user.addSettlementAmount(new Settlement(amount, this));
-    }
-
-    Double calculatePaidAndToPayDifference() {
-        return this.amountPaid - this.amountToPay;
-    }
-
-    private void addSettlementAmount(Settlement settlement) {
-        this.settlementAmounts.add(settlement);
-    }
-
-    int compare(User user) {
-        Integer finalAmount = (int) Math.abs(user.amountPaid - user.amountToPay);
-        Integer anotherFinalAmount = (int) Math.abs(this.amountPaid - this.amountToPay);
-
-        return anotherFinalAmount - finalAmount;
-    }
+//    void updateAmountToPay(Double amount) {
+//        this.amountToPay += amount;
+//    }
+//
+//    void settlementAmountWith(User user, Double amount) {
+//        this.amountToPay = this.amountToPay - amount;
+//        this.addSettlementAmount(new Settlement(amount, user));
+//    }
+//
+//    void receiveAmountFrom(User user, Double amount) {
+//        this.amountPaid = this.amountPaid - amount;
+//        user.addSettlementAmount(new Settlement(amount, this));
+//    }
+//
+//    Double calculatePaidAndToPayDifference() {
+//        return this.amountPaid - this.amountToPay;
+//    }
+//
+//    private void addSettlementAmount(Settlement settlement) {
+//        this.settlementAmounts.add(settlement);
+//    }
+//
+//    int compare(User user) {
+//        Integer finalAmount = (int) Math.abs(user.amountPaid - user.amountToPay);
+//        Integer anotherFinalAmount = (int) Math.abs(this.amountPaid - this.amountToPay);
+//
+//        return anotherFinalAmount - finalAmount;
+//    }
 
     @Override
     public String toString() {

@@ -18,17 +18,10 @@ import java.util.List;
 @RequiredArgsConstructor
 @Service
 public class UserServiceImpl implements UserService {
-    //implementujemy kontrakt dla serwisu usera
-    // główne zalety to łatwiejsza możliwość testowania serwisów
-    // późniejsze możliwości rozwoju dzięki przesłanianiu przez interfejs
-    // (możemy stworzyć nowy serwis który działa inaczej - np laczy sie z innym kontenerem danych - a dla
-    // reszty aplikacji jest to przezroczyste)
-    // dodatkowo mamy zapewniona separacje miedzy warstwami aplikacji (clean architecture)
 
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
     private final PasswordEncoder passwordEncoder;
-
 
 
     @Override
@@ -46,7 +39,7 @@ public class UserServiceImpl implements UserService {
         u.setEnabled(1);
         Role userRole = roleRepository.findByName("ROLE_USER");
         Role adminRole = roleRepository.findByName("ROLE_ADMIN");
-        u.setRoles(new HashSet<Role>(Arrays.asList(userRole,adminRole)));
+        u.setRoles(new HashSet<Role>(Arrays.asList(userRole, adminRole)));
         return userRepository.save(u);
     }
 

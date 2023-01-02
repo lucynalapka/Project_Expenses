@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import pl.coderslab.expenses.model.Expense;
 
-import pl.coderslab.expenses.repository.ExpenseRepository;
 import pl.coderslab.expenses.repository.UserRepository;
 import pl.coderslab.expenses.service.ExpenseService;
+
 import javax.validation.Valid;
 
 
@@ -21,14 +21,8 @@ import javax.validation.Valid;
 public class ExpenseController {
 
     private final ExpenseService expenseService;
-private final ExpenseRepository expenseRepository;
-private final UserRepository userRepository;
+    private final UserRepository userRepository;
 
-//    @RequestMapping(value = "", method = RequestMethod.GET)
-//    public String list(Model model) {
-//        model.addAttribute("items", expenseService.getExpenses());
-//        return "/expenses-list";
-//    }
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String list(Model model) {
         model.addAttribute("items", expenseService.findAll());
@@ -77,94 +71,9 @@ private final UserRepository userRepository;
         return "redirect:/expenses";
     }
 
-    @RequestMapping(value="/delete/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
     public String formDelete(@PathVariable Long id) {
         expenseService.deleteExpense(id);
         return "redirect:/expenses";
     }
-
-//    @RequestMapping(value = "", method = RequestMethod.GET)
-//    public String getAll(Model model) {
-//        List<Expense> expenses = expenseService.getExpenses();
-//        model.addAttribute("items", expenses);
-//        return "/expenses-list";
-//
-//    }
-//
-//    @RequestMapping(value = "/create",method = RequestMethod.GET)
-//    public String form(Model model){
-//        model.addAttribute("expense",new Expense());
-//        return "/expense-form";
-//    }
-//
-//    @RequestMapping(value = "/create",method = RequestMethod.POST)
-//    public String submit(@ModelAttribute Expense expense){
-//        expenseService.saveExpense(expense);
-//        return "redirect:/expenses";
-//    }
-//
-//    @RequestMapping(value="/delete/{id}", method = RequestMethod.GET)
-//    public String formDelete(@PathVariable Long id) {
-//        expenseService.deleteExpense(id);
-//        return "redirect:/expenses";
-//    }
-
-
-
-
-//    @RequestMapping(value="/update/{id}", method = RequestMethod.GET)
-//    public String formUpdate(@PathVariable Long id, Model model) {
-//        model.addAttribute("expense", expenseDao.findById(id));
-//        return "/expense-form";
-//    }
-//    @RequestMapping(value="/update/{id}", method = RequestMethod.POST)
-//    public String formUpdate( @ModelAttribute Expense expense) {
-//        expenseDao.editExpense(expense);
-//        return "redirect:/expenses";
-//    }
-
-
-
-
-
-//    private final ExpenseDao expenseDao;
-//
-//    @RequestMapping(value = "", method = RequestMethod.GET)
-//    public String list(Model model) {
-//        model.addAttribute("items", expenseDao.findAll());
-//        return "/expenses-list";
-//
-//    }
-//
-//    @RequestMapping(value = "/create",method = RequestMethod.GET)
-//    public String form(Model model){
-//        model.addAttribute("expense",new Expense());
-//        return "/expense-form";
-//    }
-//
-//    @RequestMapping(value = "/create",method = RequestMethod.POST)
-//    public String submit(@ModelAttribute Expense expense){
-//        expenseDao.saveExpense(expense);
-//        return "redirect:/trips";
-//    }
-//
-//    @RequestMapping(value="/delete/{id}", method = RequestMethod.GET)
-//    public String formDelete(@PathVariable Long id) {
-//        expenseDao.deleteExpense(expenseDao.findById(id));
-//        return "redirect:/expenses";
-//    }
-//
-//    @RequestMapping(value="/update/{id}", method = RequestMethod.GET)
-//    public String formUpdate(@PathVariable Long id, Model model) {
-//        model.addAttribute("expense", expenseDao.findById(id));
-//        return "/expense-form";
-//    }
-//    @RequestMapping(value="/update/{id}", method = RequestMethod.POST)
-//    public String formUpdate( @ModelAttribute Expense expense) {
-//        expenseDao.editExpense(expense);
-//        return "redirect:/expenses";
-//    }
-
-
-
 }

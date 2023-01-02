@@ -25,9 +25,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     public SpringDataUserDetailsService customUserDetailsService() {
         return new SpringDataUserDetailsService();
-    } //bean ktory wstrzykiwany jest do znalezienia usera w NASZEJ bazie danych
+    }
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
-    } //bean do szyfrowania hasla usera rejestrujacego sie
+    }
 }

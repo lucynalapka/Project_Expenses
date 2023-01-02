@@ -27,13 +27,8 @@ public class Trip {
     @ToString.Exclude
     private List<User> users;
 
-
     public List<User> getUsers() {
         return users;
     }
-
-
-
-
 
 }

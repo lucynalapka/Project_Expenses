@@ -38,9 +38,6 @@
                                 <c:forEach items="${item.users}" var="user">
                                     <p>${user.name}</p>
                                 </c:forEach>
-                                    <%-- wersja dla Users                               <c:forEach items="${item.users}" var="user">--%>
-                                    <%--                                    <p>${user.name}</p>--%>
-                                    <%--                                </c:forEach>--%>
                             </td>
 
                             <td>
@@ -53,10 +50,6 @@
                                 <a href="<c:url value="/expenses/"/>"
                                    class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
                                     <i class="h3 mb-0 text-gray-800"></i> Szczegóły kosztów</a>
-<%--                                <a href="<c:url value="/settlement"/>"--%>
-<%--                                   class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">--%>
-<%--                                    <i class="h3 mb-0 text-gray-800"></i>Rozliczenie</a>--%>
-
                             </td>
                         </tr>
 

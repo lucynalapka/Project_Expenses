@@ -14,11 +14,9 @@ public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String name;
-
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    @ManyToMany(mappedBy="roles")
+    @ManyToMany(mappedBy = "roles")
     private Set<User> users;
 }

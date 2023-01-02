@@ -1,45 +1,3 @@
-<%--<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>--%>
-<%--&lt;%&ndash;--%>
-<%--  Created by IntelliJ IDEA.--%>
-<%--  User: cyluna--%>
-<%--  Date: 01.11.2022--%>
-<%--  Time: 15:57--%>
-<%--  To change this template use File | Settings | File Templates.--%>
-<%--&ndash;%&gt;--%>
-<%--<%@ page contentType="text/html;charset=UTF-8" language="java" %>--%>
-<%--<html>--%>
-<%--<head>--%>
-<%--    <title>Title</title>--%>
-<%--</head>--%>
-<%--<body>--%>
-<%--<h1>Podaj poniesione wydatki na wyjazd</h1>--%>
-<%--<form:form method="post" modelAttribute="expense">--%>
-<%--    <div>--%>
-<%--        <form:label path="name">Nazwa</form:label>--%>
-<%--        <form:input path="name"/>--%>
-<%--            &lt;%&ndash;    <form:errors path="title" cssStyle="color: red"/>&ndash;%&gt;--%>
-<%--    </div>--%>
-<%--    <div>--%>
-<%--    <form:label path="amount">Koszt</form:label>--%>
-<%--    <form:input path="amount"/>--%>
-<%--    &lt;%&ndash;    <form:errors path="title" cssStyle="color: red"/>&ndash;%&gt;--%>
-<%--    </div>--%>
-<%--    <div>--%>
-<%--&lt;%&ndash;        <form:label path="paidFor">Osoby uczestniczące w danym koszcie</form:label>&ndash;%&gt;--%>
-<%--&lt;%&ndash;        <form:select path="paidFor" items="${paidFor}" itemLabel="name" itemValue="id"/>&ndash;%&gt;--%>
-<%--            &lt;%&ndash;    <form:errors path="title" cssStyle="color: red"/>&ndash;%&gt;--%>
-<%--        <form:select class="form-control" path="paidFor" multiple="true">--%>
-<%--            <form:option value="-" label="--Osoby uczestniczące w danym koszcie--"/>--%>
-<%--            <form:options itemValue="id" itemLabel="name" items="${paidFor}"/>--%>
-<%--        </form:select>--%>
-<%--    </div>--%>
-
-
-<%--    <form:button>Zapisz</form:button>--%>
-<%--</form:form>--%>
-<%--</body>--%>
-<%--</html>--%>
-
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -65,9 +23,8 @@
                 </div>
                 <div class="form-group">
                     <form:label path="amount" for="place">Wartość</form:label>
-                    <form:input path="amount" name="amount" type="text" class="form-control" id="amount" placeholder="Wartość"/>
-                        <%--          <label for="place">Miejsce</label>--%>
-                        <%--          <input name="place" type="text" class="form-control" id="place" placeholder="Miejsce">--%>
+                    <form:input path="amount" name="amount" type="text" class="form-control" id="amount"
+                                placeholder="Wartość"/>
                 </div>
 
                 <div class="form-group">
@@ -76,14 +33,10 @@
                         <form:option value="-" label="--Wybierz partycypujących w kosztach--"/>
                         <form:options itemValue="id" itemLabel="name" items="${paidFor}"/>
                     </form:select>
-<%--                    <form:select class="form-control" path="paidFor" multiple="true">--%>
-<%--                        <form:option value="-" label="--Osoby uczestniczące w danym koszcie--"/>--%>
-<%--                        <form:options itemValue="id" itemLabel="name" items="${paidFor}"/>--%>
-<%--                    </form:select>--%>
 
                 </div>
-                    <%--        <button type="submit" class="btn btn-primary">Zapisz</button>--%>
-                <form:button  type="submit" class="btn btn-primary">Zapisz</form:button>
+
+                <form:button type="submit" class="btn btn-primary">Zapisz</form:button>
 
             </div>
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>

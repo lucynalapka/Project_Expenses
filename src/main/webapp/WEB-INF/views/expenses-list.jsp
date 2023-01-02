@@ -71,15 +71,14 @@
 
                         <table class="table">
 
-                            <%--                            <c:forEach items="${items}" var="item">--%>
-
                             <td>
                                 <c:set var="amountPerPerson" value="${0}"/>
-                                    <c:set var="amountPerPerson" value="${amountTotal / noOfPerson}"/>
+                                <c:set var="amountPerPerson" value="${amountTotal / noOfPerson}"/>
                             </td>
 
                             <tr>
-                                <h3 class="m-0 font-weight-bold text-primary">Koszt na osobę: ${amountPerPerson}, ${item.settle}
+                                <h3 class="m-0 font-weight-bold text-primary">Koszt na
+                                    osobę: ${amountPerPerson}, ${item.settle}
                                     zł</h3>
                             </tr>
                         </table>

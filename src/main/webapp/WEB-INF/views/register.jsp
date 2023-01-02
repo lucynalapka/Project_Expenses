@@ -66,13 +66,6 @@
                                 <input type="text" id="amountPaid" name="amountPaid" class="form-control" placeholder="amountPaid" >
                                 <label for="amountPaid">Poniesiony koszt</label>
                             </div>
-
-<%--                        <div class="col-md-6">--%>
-<%--                            <div class="form-label-group">--%>
-<%--                                <input type="text" id="amountToPay" name="amountToPay" class="form-control" placeholder="amountToPay" >--%>
-<%--                                <label for="amountToPay">Kwota do zwrotu</label>--%>
-<%--                            </div>--%>
-<%--                        </div>--%>
                     </div>
                 </div>
                 <input type="submit" class="btn btn-primary btn-block" value="Register"/>

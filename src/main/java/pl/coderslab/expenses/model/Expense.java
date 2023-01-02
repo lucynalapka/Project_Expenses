@@ -6,8 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
-import java.lang.constant.Constable;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -25,21 +23,16 @@ public class Expense {
     @ToString.Exclude
     private List<User> paidFor;
 
-    public Expense(String name, Double amount,  List<User> paidFor) {
+    public Expense(String name, Double amount, List<User> paidFor) {
         this.name = name;
         this.amount = amount;
         this.paidFor = paidFor;
     }
+
     public double getSettle() {
         double noOfUsers = paidFor.size();
-//       Double amountPerUser = this.amount / noOfUsers;
-//        return amountPerUser;
         return noOfUsers;
     }
-
-
-
-
 
     public List<User> getUsers() {
         return paidFor;
